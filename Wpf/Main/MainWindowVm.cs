@@ -3,14 +3,15 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using LiveCharts;
 using LiveCharts.Geared;
-using LiveCharts.Wpf;
 
-namespace Wpf
+namespace Wpf.Main
 {
     public class MainWindowVm : INotifyPropertyChanged
     {
         private double _points;
         private SeriesCollection _seriesCollection;
+        private double? _min;
+        private double? _max;
 
         public MainWindowVm()
         {
@@ -40,11 +41,31 @@ namespace Wpf
 
         public Quality Quality { get; set; }
 
+        public double? Min
+        {
+            get { return _min; }
+            set
+            {
+                _min = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public double? Max
+        {
+            get { return _max; }
+            set
+            {
+                _max = value;
+                OnPropertyChanged();
+            }
+        }
+
         public void Go()
         {
             Points = Math.Truncate(Points);
 
-            var ar = new double[(int) Points+1];
+            var ar = new double[(int) Points + 1];
 
             var r = new Random();
             var trend = 0d;
@@ -72,6 +93,10 @@ namespace Wpf
             {
                 series
             };
+
+            //Lets restart zoom
+            Max = null;
+            Min = null;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

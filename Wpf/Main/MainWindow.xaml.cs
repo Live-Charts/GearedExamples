@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows;
 using System.Windows.Navigation;
+using Wpf.Scrolling;
 
-namespace Wpf
+namespace Wpf.Main
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,7 +23,7 @@ namespace Wpf
             e.Handled = true;
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void GoOnClick(object sender, RoutedEventArgs e)
         {
             ((MainWindowVm) DataContext).Go();
         }
@@ -36,6 +36,11 @@ namespace Wpf
                 return;
             }
             MessageBox.Show("Once you go animated, you could face a visual error with axis separators");
+        }
+
+        private void MoreOnClick(object sender, RoutedEventArgs e)
+        {
+            new ScrollingWindow().ShowDialog();
         }
     }
 }
