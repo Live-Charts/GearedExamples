@@ -6,16 +6,16 @@ namespace Wpf.Scrolling
     /// <summary>
     /// Interaction logic for ScrollingWindow.xaml
     /// </summary>
-    public partial class ScrollingWindow
+    public partial class ScrollingView
     {
-        public ScrollingWindow()
+        public ScrollingView()
         {
             InitializeComponent();
         }
 
         private void Axis_OnRangeChanged(RangeChangedEventArgs eventargs)
         {
-            var vm = (ScrollingVm) DataContext;
+            var vm = (ScrollingViewModel) DataContext;
 
             var currentRange = eventargs.Range;
 

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Wpf</RootNamespace>
     <AssemblyName>ExampleApp</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -35,27 +35,30 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Livecharts, Version=0.8.0.0, Culture=neutral, PublicKeyToken=c5935629d38af058, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.0.8.0\lib\net40\Livecharts.dll</HintPath>
+    <Reference Include="LiveCharts, Version=0.9.0.0, Culture=neutral, PublicKeyToken=c5935629d38af058, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.0\lib\net40\LiveCharts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LiveCharts.Geared, Version=1.2.0.0, Culture=neutral, PublicKeyToken=7292f245d14ab8bf, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.Geared.1.2.0\lib\net45\LiveCharts.Geared.dll</HintPath>
+    <Reference Include="LiveCharts.Geared, Version=1.2.1.0, Culture=neutral, PublicKeyToken=7292f245d14ab8bf, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Geared.1.2.1\lib\net40\LiveCharts.Geared.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LiveCharts.Wpf, Version=0.8.0.0, Culture=neutral, PublicKeyToken=3b585c2a5f1a92c1, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.Wpf.0.8.0\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.0.0, Culture=neutral, PublicKeyToken=3b585c2a5f1a92c1, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.0\lib\net40\LiveCharts.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MahApps.Metro, Version=1.3.0.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.1.3.0\lib\net45\MahApps.Metro.dll</HintPath>
+    <Reference Include="MahApps.Metro, Version=1.4.1.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.4.1\lib\net40\MahApps.Metro.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.1.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.4.1\lib\net40\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
@@ -76,11 +79,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Scrolling\ScrollingVm.cs" />
-    <Compile Include="Scrolling\ScrollingWindow.xaml.cs">
-      <DependentUpon>ScrollingWindow.xaml</DependentUpon>
+    <Compile Include="Home\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Main\MainWindow.xaml">
+    <Compile Include="Home\HomeViewModel.cs" />
+    <Compile Include="Home\SampleVM.cs" />
+    <Compile Include="Scrolling\ScrollingViewmodel.cs" />
+    <Compile Include="Scrolling\ScrollingView.xaml.cs">
+      <DependentUpon>ScrollingView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Resources\LiveChardGearedResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing Geared\TestingGearedView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -88,17 +100,25 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Main\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Testing Geared\TestingGearedView.xaml.cs">
+      <DependentUpon>TestingGearedView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Scrolling\ScrollingWindow.xaml">
+    <Page Include="Home\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\AppDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Scrolling\ScrollingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main\MainWindowVm.cs" />
+    <Compile Include="Testing Geared\TestingGearedViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -125,6 +145,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LiveChartsLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\favicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\TestingGeared.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\scrollablechart.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

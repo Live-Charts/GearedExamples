@@ -1,18 +1,17 @@
 ﻿using System.Diagnostics;
 using System.Windows;
 using System.Windows.Navigation;
-using Wpf.Scrolling;
 
-namespace Wpf.Main
+namespace Wpf.Testing_Geared
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow
+    public partial class TestingGearedView
     {
         private bool _noF;
 
-        public MainWindow()
+        public TestingGearedView()
         {
             InitializeComponent();
         }
@@ -25,7 +24,7 @@ namespace Wpf.Main
 
         private void GoOnClick(object sender, RoutedEventArgs e)
         {
-            ((MainWindowVm) DataContext).Go();
+            ((TestingGearedViewModel) DataContext).Go();
         }
 
         private void Animated_OnChecked(object sender, RoutedEventArgs e)
@@ -36,11 +35,6 @@ namespace Wpf.Main
                 return;
             }
             MessageBox.Show("Once you go animated, you could face a visual error with axis separators");
-        }
-
-        private void MoreOnClick(object sender, RoutedEventArgs e)
-        {
-            new ScrollingWindow().ShowDialog();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<controls:MetroWindow x:Class="Wpf.Main.MainWindow"
+﻿<UserControl x:Class="Wpf.Testing_Geared.TestingGearedView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,16 +7,10 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:main="clr-namespace:Wpf.Main"
-        mc:Ignorable="d"
-        Title="LiveCharts Geared" Height="650" Width="1000"
-                      WindowStartupLocation="CenterScreen"
-                      WindowTitleBrush="#252526"
-                      NonActiveWindowTitleBrush="#252526"
-                      TitleCharacterCasing="Normal"
-                      GlowBrush="#9D9D9D"
-                      BorderThickness="0">
-    <controls:MetroWindow.Resources>
+        xmlns:scrolling="clr-namespace:Wpf.Scrolling"
+        xmlns:testingGeared="clr-namespace:Wpf.Testing_Geared"
+        mc:Ignorable="d">
+    <UserControl.Resources>
         <ObjectDataProvider MethodName="GetValues"
         ObjectType="{x:Type sys:Enum}"
         x:Key="Q">
@@ -24,17 +18,16 @@
                 <x:Type TypeName="geared:Quality" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
-    </controls:MetroWindow.Resources>
-    <controls:MetroWindow.DataContext>
-        <main:MainWindowVm></main:MainWindowVm>
-    </controls:MetroWindow.DataContext>
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <testingGeared:TestingGearedViewModel></testingGeared:TestingGearedViewModel>
+    </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Width="300" HorizontalAlignment="Left"
-              Background="#10ffffff">
+        <Grid Width="250" HorizontalAlignment="Left">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -80,17 +73,15 @@
                 <CheckBox Checked="Animated_OnChecked" Name="Animated" IsChecked="True"></CheckBox>
                 <TextBlock>Disable Animations</TextBlock>
             </StackPanel>
-            
-            <Button Grid.Row="8" Margin="10" Click="GoOnClick" Height="50" Background="#2895D2">
+
+            <Button Grid.Row="8" Margin="10" Click="GoOnClick" Height="50">
                 Go
-            </Button>
-            <Button Grid.Row="9" Margin="10" Click="MoreOnClick" Height="50" Background="#2895D2">
-                See more examples
             </Button>
         </Grid>
         <lvc:CartesianChart Grid.Column="1" Margin="10" Zoom="X" 
                             Series="{Binding SeriesCollection}" 
-                            DisableAnimations="{Binding ElementName=Animated, Path=IsChecked}">
+                            DisableAnimations="{Binding ElementName=Animated, Path=IsChecked}"
+                            MinWidth="300" MinHeight="300">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis MinValue="{Binding Min, Mode=TwoWay}" MaxValue="{Binding Max, Mode=TwoWay}"
                           MinRange="10" MaxRange="{Binding Points}" Separator="{x:Static lvc:DefaultAxes.CleanSeparator}">
@@ -105,7 +96,55 @@
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
     </Grid>
-</controls:MetroWindow>
+</UserControl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

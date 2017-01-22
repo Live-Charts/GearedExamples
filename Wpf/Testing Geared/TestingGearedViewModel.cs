@@ -1,19 +1,18 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using LiveCharts;
 using LiveCharts.Geared;
 
-namespace Wpf.Main
+namespace Wpf.Testing_Geared
 {
-    public class MainWindowVm : INotifyPropertyChanged
+    public class TestingGearedViewModel : INotifyPropertyChanged
     {
         private double _points;
         private SeriesCollection _seriesCollection;
         private double? _min;
         private double? _max;
 
-        public MainWindowVm()
+        public TestingGearedViewModel()
         {
             _points = 100000d;
             Quality = Quality.Medium;
@@ -101,7 +100,7 @@ namespace Wpf.Main
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected virtual void OnPropertyChanged(string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

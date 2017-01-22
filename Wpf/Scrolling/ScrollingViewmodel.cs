@@ -6,13 +6,13 @@ using LiveCharts.Geared;
 
 namespace Wpf.Scrolling
 {
-    public class ScrollingVm : INotifyPropertyChanged
+    public class ScrollingViewModel : INotifyPropertyChanged
     {
         private Func<double, string> _formatter;
         private double _from;
         private double _to;
 
-        public ScrollingVm()
+        public ScrollingViewModel()
         {
             var now = DateTime.Now;
             var trend = 0d;
