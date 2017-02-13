@@ -4,27 +4,27 @@ using System.ComponentModel;
 using LiveCharts.Defaults;
 using LiveCharts.Geared;
 
-namespace Wpf.Scrolling
+namespace WpfGeared.Scrollable
 {
-    public class ScrollingViewModel : INotifyPropertyChanged
+    public class ScrollableViewModel : INotifyPropertyChanged
     {
         private Func<double, string> _formatter;
         private double _from;
         private double _to;
 
-        public ScrollingViewModel()
+        public ScrollableViewModel()
         {
             var now = DateTime.Now;
-            var trend = 0d;
+            var trend = -30000d;
             var l = new List<DateTimePoint>();
             var r = new Random();
 
-            for (var i = 0; i < 100000; i++)
+            for (var i = 0; i < 50000; i++)
             {
                 now = now.AddHours(1);
                 l.Add(new DateTimePoint(now.AddDays(i), trend));
 
-                if (r.NextDouble() > 0.5)
+                if (r.NextDouble() > 0.4)
                 {
                     trend += r.NextDouble()*10;
                 }

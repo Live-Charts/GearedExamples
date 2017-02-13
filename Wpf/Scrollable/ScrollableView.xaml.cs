@@ -1,21 +1,21 @@
 ﻿using System;
 using LiveCharts.Events;
 
-namespace Wpf.Scrolling
+namespace WpfGeared.Scrollable
 {
     /// <summary>
     /// Interaction logic for ScrollingWindow.xaml
     /// </summary>
-    public partial class ScrollingView
+    public partial class ScrollableView
     {
-        public ScrollingView()
+        public ScrollableView()
         {
             InitializeComponent();
         }
 
         private void Axis_OnRangeChanged(RangeChangedEventArgs eventargs)
         {
-            var vm = (ScrollingViewModel) DataContext;
+            var vm = (ScrollableViewModel) DataContext;
 
             var currentRange = eventargs.Range;
 

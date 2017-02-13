@@ -2,13 +2,10 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
-using Wpf.Testing_Geared;
+using Wpf.Home;
 
-namespace Wpf.Home
+namespace WpfGeared.Home
 {
-    /// <summary>
-    /// Interaction logic for HomeWindow.xaml
-    /// </summary>
     public partial class HomeView
     {
         public HomeView()
@@ -25,7 +22,9 @@ namespace Wpf.Home
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             var sample = (SampleVm) ((Border) sender).DataContext;
-            ((HomeViewModel) DataContext).Content = sample.Content;
+            var hvm = (HomeViewModel) DataContext;
+            hvm.Content = sample.Content;
+            hvm.IsMenuOpen = false;
         }
     }
 }

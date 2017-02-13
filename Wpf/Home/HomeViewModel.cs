@@ -4,35 +4,59 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Media.Imaging;
-using Wpf.Scrolling;
-using Wpf.Testing_Geared;
+using Wpf.Home;
+using WpfGeared.DynamicAxisUnit;
+using WpfGeared.Intro;
+using WpfGeared.MultipleSeriesTest;
+using WpfGeared.SpeedTest;
+using ScrollableView = WpfGeared.Scrollable.ScrollableView;
+using TestingGearedView = WpfGeared.Testing_Geared.TestingGearedView;
 
-namespace Wpf.Home
+namespace WpfGeared.Home
 {
     public class HomeViewModel: INotifyPropertyChanged
     {
         private UserControl _content;
+        private bool _isMenuOpen;
 
         public HomeViewModel()
         {
+            IsMenuOpen = true;
             Samples = new ObservableCollection<SampleVm>
             {
                 new SampleVm
-                { 
+                {
+                    Title = "Intro",
+                    Content = new IntroView()
+                },
+                new SampleVm
+                {
                     Title = "Testing Geared",
-                    ImageSource = new BitmapImage(new Uri(@"/ExampleApp;component/Resources/TestingGeared.jpg", UriKind.Relative)),
-                    Text = "Explains the capabilities and flexibility of the Geared package",
                     Content = new TestingGearedView()
                 },
                 new SampleVm
                 {
-                    Title = "Scrolling Chart",
-                    ImageSource = new BitmapImage(new Uri(@"/ExampleApp;component/Resources/scrollablechart.jpg", UriKind.Relative)),
-                    Text = "A Scrollable chart",
-                    Content = new ScrollingView()
+                    Title = "Multi-thread speed Test",
+                    Content = new SpeedTestView()
+                },
+                new SampleVm
+                {
+                    Title = "Multiple Series",
+                    Content = new MultipleSeriesView()
+                },
+                new SampleVm
+                {
+                    Title = "Scrollable",
+                    Content = new ScrollableView()
+                },
+                new SampleVm
+                {
+                    Title = "Dynamic Axis",
+                    Content = new DynamicAxisUnitView()
                 }
             };
+
+            Content = Samples[0].Content;
         }
 
         public ObservableCollection<SampleVm> Samples { get; set; }
@@ -45,6 +69,16 @@ namespace Wpf.Home
                 OnPropertyChanged("Content");
             }
         }
+        public bool IsMenuOpen
+        {
+            get { return _isMenuOpen; }
+            set
+            {
+                _isMenuOpen = value;
+                OnPropertyChanged("IsMenuOpen");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)

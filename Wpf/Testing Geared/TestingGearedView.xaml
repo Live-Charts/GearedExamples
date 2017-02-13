@@ -1,102 +1,187 @@
-﻿<UserControl x:Class="Wpf.Testing_Geared.TestingGearedView"
+﻿<UserControl x:Class="WpfGeared.Testing_Geared.TestingGearedView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:scrolling="clr-namespace:Wpf.Scrolling"
-        xmlns:testingGeared="clr-namespace:Wpf.Testing_Geared"
-        mc:Ignorable="d">
+        xmlns:testingGeared="clr-namespace:WpfGeared.Testing_Geared"
+        mc:Ignorable="d" Background="White"
+             d:DesignWidth="600">
     <UserControl.Resources>
-        <ObjectDataProvider MethodName="GetValues"
-        ObjectType="{x:Type sys:Enum}"
-        x:Key="Q">
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="Q">
             <ObjectDataProvider.MethodParameters>
                 <x:Type TypeName="geared:Quality" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+        <testingGeared:SpeedConverter x:Key="SpeedConverter" />
     </UserControl.Resources>
     <UserControl.DataContext>
-        <testingGeared:TestingGearedViewModel></testingGeared:TestingGearedViewModel>
+        <testingGeared:TestingGearedViewModel />
     </UserControl.DataContext>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid Width="250" HorizontalAlignment="Left">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Left">
+            <Grid.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="11"></Setter>
+                </Style>
+            </Grid.Resources>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" TextWrapping="Wrap" Margin="10">
-                The geared package is also customizable according to your needs,
-                you must find the balance between Points-Animations-Quality
-                for your case, performance might also vary according to your chart size,
-                the smaller the faster.
-                <LineBreak />
-                <LineBreak />
-                Select the number of points, Quality and Disable/Enable animations, then click Go to render the chart.
-                <LineBreak/>
-                <LineBreak/>
-                Find more information 
-                <Hyperlink NavigateUri="https://lvcharts.net/App/examples/v1/wpf/geared" 
-                           RequestNavigate="Hyperlink_RequestNavigate">
-                here
-                </Hyperlink>
-                <LineBreak/>
-                <LineBreak/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="280"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" TextWrapping="Wrap">
+                Find the balance between Points-Animations-Quality, we can't have it all,
+                performance might also vary according to your chart size, the smaller the faster.
                 Use your mouse wheel to zoom in/out, click, hold and drag for panning
             </TextBlock>
-            <Separator Grid.Row="1" Margin="0 10"></Separator>
-            <TextBlock Grid.Row="2" Margin="10" Text="{Binding Points, StringFormat=Number of Points {0:N0}, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-            <Slider Grid.Row="3" Minimum="10" Maximum="10000000" Margin="10" Value="{Binding Points, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></Slider>
-            <Separator Grid.Row="4" Margin="0 10"></Separator>
-            <TextBlock Grid.Row="5" Margin="10">Quality</TextBlock>
-            <ComboBox Grid.Row="6" Margin="10" ItemsSource="{Binding Source={StaticResource Q}}" SelectedItem="{Binding Quality}"></ComboBox>
-            
-            <StackPanel Grid.Row="7" Orientation="Horizontal" Margin="10">
-                <CheckBox Checked="Animated_OnChecked" Name="Animated" IsChecked="True"></CheckBox>
-                <TextBlock>Disable Animations</TextBlock>
-            </StackPanel>
-
-            <Button Grid.Row="8" Margin="10" Click="GoOnClick" Height="50">
-                Go
-            </Button>
+            <Grid Grid.Row="0" Grid.Column="1" Margin="10 0 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="170"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Points, StringFormat=Number of Points {0:N0}, UpdateSourceTrigger=PropertyChanged}" Opacity="{StaticResource SecondaryTextOpacity}" VerticalAlignment="Center"/>
+                <Slider Grid.Row="0" Grid.Column="1" Minimum="10" Maximum="10000000" Value="{Binding Points, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                
+                <TextBlock Grid.Row="1" Grid.Column="0" Opacity="{StaticResource SecondaryTextOpacity}" VerticalAlignment="Center">Quality</TextBlock>
+                <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Source={StaticResource Q}}" SelectedItem="{Binding Quality}" Margin="5"/>
+                
+                <TextBlock Grid.Row="2" Grid.Column="0" Opacity="{StaticResource SecondaryTextOpacity}" VerticalAlignment="Center">Disable Animations</TextBlock>
+                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                    <CheckBox Checked="Animated_OnChecked" Name="Animated" IsChecked="False" HorizontalAlignment="Left" Margin="5"></CheckBox>
+                    <ComboBox Name="Speed">
+                        <ComboBox.Items>
+                            <ComboBoxItem>Slow</ComboBoxItem>
+                            <ComboBoxItem>Medium</ComboBoxItem>
+                            <ComboBoxItem IsSelected="True">Fast</ComboBoxItem>
+                        </ComboBox.Items>
+                    </ComboBox>
+                </StackPanel>
+                <Button Grid.Row="3" Grid.Column="1" Margin="5" Click="GoOnClick" Height="30" Width="50" HorizontalAlignment="Right" Padding="0">
+                    Go
+                </Button>
+            </Grid>
         </Grid>
-        <lvc:CartesianChart Grid.Column="1" Margin="10" Zoom="X" 
+        <lvc:CartesianChart Grid.Row="1" Margin="10" Zoom="X" 
                             Series="{Binding SeriesCollection}" 
                             DisableAnimations="{Binding ElementName=Animated, Path=IsChecked}"
-                            MinWidth="300" MinHeight="300">
+                            AnimationsSpeed="{Binding ElementName=Speed, Path=Text, Converter={StaticResource SpeedConverter}}"
+                            MinWidth="100" MinHeight="100"
+                            BorderThickness="1">
+            <lvc:CartesianChart.Resources>
+                <Style TargetType="geared:GLineSeries" BasedOn="{StaticResource {x:Type geared:GLineSeries}}">
+                    <Setter Property="StrokeThickness" Value="2"></Setter>
+                    <Setter Property="Stroke" Value="#FFB300"></Setter>
+                    <Setter Property="Fill" Value="#21FFB300"></Setter>
+                    <Setter Property="LineSmoothness" Value="1"></Setter>
+                    <Setter Property="PointForeround" Value="#FFB300"></Setter>
+                </Style>
+                <Style TargetType="lvc:Axis">
+                    <Setter Property="Foreground" Value="#717171"></Setter>
+                    <Setter Property="FontSize" Value="15"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="AxisOrientation" Value="X">
+                            <Setter Property="ShowLabels" Value="False"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+                <Style TargetType="lvc:Separator">
+                    <Setter Property="Stroke" Value="#DADADA"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="AxisOrientation" Value="X">
+                            <Setter Property="IsEnabled" Value="False"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </lvc:CartesianChart.Resources>
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis MinValue="{Binding Min, Mode=TwoWay}" MaxValue="{Binding Max, Mode=TwoWay}"
+                <lvc:Axis MinValue="{Binding Min}" MaxValue="{Binding Max}"
                           MinRange="10" MaxRange="{Binding Points}" Separator="{x:Static lvc:DefaultAxes.CleanSeparator}">
                 </lvc:Axis>
             </lvc:CartesianChart.AxisX>
-            <lvc:CartesianChart.AxisY>
-                <lvc:Axis>
-                    <lvc:Axis.Separator>
-                        <lvc:Separator StrokeDashArray="2" StrokeThickness="2" Stroke="#505050"></lvc:Separator>
-                    </lvc:Axis.Separator>
-                </lvc:Axis>
-            </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
     </Grid>
 </UserControl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

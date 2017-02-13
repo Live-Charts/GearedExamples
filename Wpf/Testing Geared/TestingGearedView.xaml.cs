@@ -1,8 +1,6 @@
-﻿using System.Diagnostics;
-using System.Windows;
-using System.Windows.Navigation;
+﻿using System.Windows;
 
-namespace Wpf.Testing_Geared
+namespace WpfGeared.Testing_Geared
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -10,21 +8,17 @@ namespace Wpf.Testing_Geared
     public partial class TestingGearedView
     {
         private bool _noF;
+        private TestingGearedViewModel Vm { get { return (TestingGearedViewModel) DataContext; } }
 
         public TestingGearedView()
         {
             InitializeComponent();
-        }
-
-        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
-            e.Handled = true;
+            Vm.Go();
         }
 
         private void GoOnClick(object sender, RoutedEventArgs e)
         {
-            ((TestingGearedViewModel) DataContext).Go();
+            Vm.Go();
         }
 
         private void Animated_OnChecked(object sender, RoutedEventArgs e)

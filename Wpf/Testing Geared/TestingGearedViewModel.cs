@@ -3,19 +3,21 @@ using System.ComponentModel;
 using LiveCharts;
 using LiveCharts.Geared;
 
-namespace Wpf.Testing_Geared
+namespace WpfGeared.Testing_Geared
 {
     public class TestingGearedViewModel : INotifyPropertyChanged
     {
         private double _points;
         private SeriesCollection _seriesCollection;
-        private double? _min;
-        private double? _max;
+        private double _min;
+        private double _max;
 
         public TestingGearedViewModel()
         {
             _points = 100000d;
             Quality = Quality.Medium;
+            Max = double.NaN;
+            Min = double.NaN;
         }
 
         public double Points
@@ -40,7 +42,7 @@ namespace Wpf.Testing_Geared
 
         public Quality Quality { get; set; }
 
-        public double? Min
+        public double Min
         {
             get { return _min; }
             set
@@ -50,7 +52,7 @@ namespace Wpf.Testing_Geared
             }
         }
 
-        public double? Max
+        public double Max
         {
             get { return _max; }
             set
@@ -64,7 +66,7 @@ namespace Wpf.Testing_Geared
         {
             Points = Math.Truncate(Points);
 
-            var ar = new double[(int) Points + 1];
+            var ar = new double[(int) Points];
 
             var r = new Random();
             var trend = 0d;
@@ -93,9 +95,9 @@ namespace Wpf.Testing_Geared
                 series
             };
 
-            //Lets restart zoom
-            Max = null;
-            Min = null;
+            //reset axis limits
+            Max = double.NaN;
+            Min = double.NaN;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -104,11 +106,5 @@ namespace Wpf.Testing_Geared
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-    }
-
-    public class SeriesVm
-    {
-        public string Name { get; set; }
-        public Type Type { get; set; }
     }
 }

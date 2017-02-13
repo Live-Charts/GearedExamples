@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="WpfGeared.Intro.IntroView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfGeared.Intro"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="16"></Setter>
+            </Style>
+        </Grid.Resources>
+        <StackPanel Margin="20">
+            <TextBlock TextWrapping="Wrap">
+                 Select any of the samples to the left to test LiveCharts.Geared.
+            </TextBlock>
+            <TextBlock  TextWrapping="Wrap" Margin="0 0 0 20">
+                If you cloned this repository consider that to get the real performance of 
+                the library you must:
+            </TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <Ellipse Fill="#424242" Height="8" Width="8" Margin="15 0"></Ellipse>
+                <TextBlock>Build the project using Release configuration.</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Ellipse Fill="#424242" Height="8" Width="8" Margin="15 0"></Ellipse>
+                <TextBlock>Preferably run it out side of Visual Studio environment.</TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

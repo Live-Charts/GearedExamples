@@ -7,9 +7,9 @@
     <ProjectGuid>{A48EBCEE-B25C-463A-A373-B71FAFE133E4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Wpf</RootNamespace>
+    <RootNamespace>WpfGeared</RootNamespace>
     <AssemblyName>ExampleApp</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -23,8 +23,11 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v4.0' ">NET40</DefineConstants>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v4.5' ">NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,33 +35,36 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v4.0' ">NET40</DefineConstants>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v4.5' ">NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LiveCharts, Version=0.9.0.0, Culture=neutral, PublicKeyToken=c5935629d38af058, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.0.9.0\lib\net40\LiveCharts.dll</HintPath>
+    <Reference Include="LiveCharts, Version=0.9.3.0, Culture=neutral, PublicKeyToken=c5935629d38af058, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.3\lib\net45\LiveCharts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LiveCharts.Geared, Version=1.2.1.0, Culture=neutral, PublicKeyToken=7292f245d14ab8bf, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.Geared.1.2.1\lib\net40\LiveCharts.Geared.dll</HintPath>
+    <Reference Include="LiveCharts.Geared, Version=1.2.5.0, Culture=neutral, PublicKeyToken=7292f245d14ab8bf, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Geared.1.2.5\lib\net45\LiveCharts.Geared.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LiveCharts.Wpf, Version=0.9.0.0, Culture=neutral, PublicKeyToken=3b585c2a5f1a92c1, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.Wpf.0.9.0\lib\net40\LiveCharts.Wpf.dll</HintPath>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.3.0, Culture=neutral, PublicKeyToken=3b585c2a5f1a92c1, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.3\lib\net45\LiveCharts.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MahApps.Metro, Version=1.4.1.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.1.4.1\lib\net40\MahApps.Metro.dll</HintPath>
+    <Reference Include="MahApps.Metro, Version=1.4.3.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\..\VirtualizedValues\packages\MahApps.Metro.1.4.3\lib\net40\MahApps.Metro.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.1.4.1\lib\net40\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\..\VirtualizedValues\packages\MahApps.Metro.1.4.3\lib\net40\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
@@ -79,16 +85,46 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DynamicAxisUnit\RelayCommand.cs" />
+    <Compile Include="DynamicAxisUnit\Repository.cs" />
+    <Compile Include="DynamicAxisUnit\DynamicAxisUnitView.xaml.cs">
+      <DependentUpon>DynamicAxisUnitView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicAxisUnit\DynamicAxisUnitVm.cs" />
+    <Compile Include="DynamicAxisUnit\VisitsByDateTime.cs" />
     <Compile Include="Home\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Home\HomeViewModel.cs" />
     <Compile Include="Home\SampleVM.cs" />
-    <Compile Include="Scrolling\ScrollingViewmodel.cs" />
-    <Compile Include="Scrolling\ScrollingView.xaml.cs">
-      <DependentUpon>ScrollingView.xaml</DependentUpon>
+    <Compile Include="Intro\IntroView.xaml.cs">
+      <DependentUpon>IntroView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Resources\LiveChardGearedResources.xaml">
+    <Compile Include="MultipleSeriesTest\MultipleSeriesView.xaml.cs">
+      <DependentUpon>MultipleSeriesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MultipleSeriesTest\MultipleSeriesVm.cs" />
+    <Compile Include="Scrollable\ScrollableViewModel.cs" />
+    <Compile Include="Scrollable\ScrollableView.xaml.cs">
+      <DependentUpon>ScrollableView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DynamicAxisUnit\DynamicAxisUnitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Intro\IntroView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MultipleSeriesTest\MultipleSeriesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ChartsResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpeedTest\SpeedTestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -100,6 +136,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SpeedTest\RelayCommand.cs" />
+    <Compile Include="SpeedTest\SpeedTestView.xaml.cs">
+      <DependentUpon>SpeedTestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpeedTest\SpeedTestVm.cs" />
+    <Compile Include="Testing Geared\SpeedConverter.cs" />
     <Compile Include="Testing Geared\TestingGearedView.xaml.cs">
       <DependentUpon>TestingGearedView.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -112,7 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Scrolling\ScrollingView.xaml">
+    <Page Include="Scrollable\ScrollableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,10 +198,7 @@
     <Resource Include="favicon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\TestingGeared.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\scrollablechart.jpg" />
+    <Resource Include="Resources\chevron.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
