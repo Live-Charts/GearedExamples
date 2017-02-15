@@ -33,20 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LiveCharts, Version=0.7.17.0, Culture=neutral, PublicKeyToken=c5935629d38af058, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.0.7.17\lib\portable-net40+sl5+win8+wp8+wpa81\LiveCharts.dll</HintPath>
+    <Reference Include="LiveCharts, Version=0.9.3.0, Culture=neutral, PublicKeyToken=c5935629d38af058, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.3\lib\net45\LiveCharts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LiveCharts.Geared, Version=1.1.0.38586, Culture=neutral, PublicKeyToken=7292f245d14ab8bf, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.Geared.1.1.0.38587\lib\net452\LiveCharts.Geared.dll</HintPath>
+    <Reference Include="LiveCharts.Geared, Version=1.2.5.0, Culture=neutral, PublicKeyToken=7292f245d14ab8bf, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Geared.1.2.5\lib\net45\LiveCharts.Geared.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LiveCharts.WinForms, Version=0.7.17.0, Culture=neutral, PublicKeyToken=1f1e67602fe23622, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.WinForms.0.7.17\lib\net452\LiveCharts.WinForms.dll</HintPath>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.3.0, Culture=neutral, PublicKeyToken=1f1e67602fe23622, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.3\lib\net45\LiveCharts.WinForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LiveCharts.Wpf, Version=0.7.17.0, Culture=neutral, PublicKeyToken=3b585c2a5f1a92c1, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.Wpf.0.7.17\lib\net452\LiveCharts.Wpf.dll</HintPath>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.3.0, Culture=neutral, PublicKeyToken=3b585c2a5f1a92c1, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.3\lib\net45\LiveCharts.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -67,16 +67,52 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicAxis\DynamicAxisExample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DynamicAxis\DynamicAxisExample.Designer.cs">
+      <DependentUpon>DynamicAxisExample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicAxis\DynamicAxisUnitVm.cs" />
+    <Compile Include="DynamicAxis\Repository.cs" />
+    <Compile Include="DynamicAxis\VisitsByDateTime.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MultipleSeries\MultipleSeriesExample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MultipleSeries\MultipleSeriesExample.Designer.cs">
+      <DependentUpon>MultipleSeriesExample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MultipleSeries\MultipleSeriesVm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScrollableChart\ScrollableExample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScrollableChart\ScrollableExample.Designer.cs">
+      <DependentUpon>ScrollableExample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScrollableChart\ScrollableViewModel.cs" />
+    <Compile Include="SpeedTest\SpeedTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpeedTest\SpeedTest.Designer.cs">
+      <DependentUpon>SpeedTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpeedTest\SpeedTestVm.cs" />
+    <EmbeddedResource Include="DynamicAxis\DynamicAxisExample.resx">
+      <DependentUpon>DynamicAxisExample.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultipleSeries\MultipleSeriesExample.resx">
+      <DependentUpon>MultipleSeriesExample.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -87,6 +123,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ScrollableChart\ScrollableExample.resx">
+      <DependentUpon>ScrollableExample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpeedTest\SpeedTest.resx">
+      <DependentUpon>SpeedTest.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
