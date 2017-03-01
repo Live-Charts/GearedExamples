@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using Wpf.Home;
 using WpfGeared.DynamicAxisUnit;
+using WpfGeared.Histogram;
 using WpfGeared.Intro;
 using WpfGeared.MultipleSeriesTest;
 using WpfGeared.SpeedTest;
@@ -48,6 +49,11 @@ namespace WpfGeared.Home
                 {
                     Title = "Scrollable",
                     Content = new ScrollableView()
+                },
+                new SampleVm
+                {
+                    Title = "Histogram",
+                    Content = new HistogramView()
                 },
                 new SampleVm
                 {

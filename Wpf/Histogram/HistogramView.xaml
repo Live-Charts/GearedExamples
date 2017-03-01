@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="WpfGeared.Histogram.HistogramView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfGeared.Histogram"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <local:HistogramViewModel></local:HistogramViewModel>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="geared:GColumnSeries">
+                <Setter Property="ColumnPadding" Value="0"></Setter>
+                <Setter Property="MaxColumnWidth" Value="9999"></Setter>
+                <Setter Property="SharesPosition" Value="False"></Setter>
+            </Style>
+        </Grid.Resources>
+        <lvc:CartesianChart>
+            <lvc:CartesianChart.Series>
+                <geared:GColumnSeries Values="{Binding Values1}" Fill="#CB2194F1"></geared:GColumnSeries>
+                <geared:GColumnSeries Values="{Binding Values2}" Fill="#CBF24336"></geared:GColumnSeries>
+                <geared:GColumnSeries Values="{Binding Values3}" Fill="#CBFDBF07"></geared:GColumnSeries>
+            </lvc:CartesianChart.Series>
+        </lvc:CartesianChart>
+    </Grid>
+</UserControl>
