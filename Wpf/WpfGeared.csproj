@@ -80,6 +80,11 @@
     </Compile>
     <Compile Include="DynamicAxisUnit\DynamicAxisUnitVm.cs" />
     <Compile Include="DynamicAxisUnit\VisitsByDateTime.cs" />
+    <Compile Include="FianancialSeries\DataProvider.cs" />
+    <Compile Include="FianancialSeries\FinancialSeriesView.xaml.cs">
+      <DependentUpon>FinancialSeriesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FianancialSeries\FinancialSeriesViewModel.cs" />
     <Compile Include="Histogram\DataProvider.cs" />
     <Compile Include="Histogram\HistogramView.xaml.cs">
       <DependentUpon>HistogramView.xaml</DependentUpon>
@@ -102,6 +107,10 @@
       <DependentUpon>ScrollableView.xaml</DependentUpon>
     </Compile>
     <Page Include="DynamicAxisUnit\DynamicAxisUnitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FianancialSeries\FinancialSeriesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

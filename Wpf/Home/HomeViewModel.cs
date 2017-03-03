@@ -28,41 +28,41 @@ namespace WpfGeared.Home
                 new SampleVm
                 {
                     Title = "Intro",
-                    Content = new IntroView()
+                    Content = typeof(IntroView)
                 },
                 new SampleVm
                 {
                     Title = "Testing Geared",
-                    Content = new TestingGearedView()
+                    Content = typeof(TestingGearedView)
                 },
                 new SampleVm
                 {
                     Title = "Multi-thread speed Test",
-                    Content = new SpeedTestView()
+                    Content = typeof(SpeedTestView)
                 },
                 new SampleVm
                 {
                     Title = "Multiple Series",
-                    Content = new MultipleSeriesView()
+                    Content = typeof(MultipleSeriesView)
                 },
                 new SampleVm
                 {
                     Title = "Scrollable",
-                    Content = new ScrollableView()
+                    Content = typeof(ScrollableView)
                 },
                 new SampleVm
                 {
                     Title = "Histogram",
-                    Content = new HistogramView()
+                    Content = typeof(HistogramView)
                 },
                 new SampleVm
                 {
                     Title = "Dynamic Axis",
-                    Content = new DynamicAxisUnitView()
+                    Content = typeof(DynamicAxisUnitView)
                 }
             };
 
-            Content = Samples[0].Content;
+            Content = (UserControl) Activator.CreateInstance( Samples[0].Content);
         }
 
         public ObservableCollection<SampleVm> Samples { get; set; }

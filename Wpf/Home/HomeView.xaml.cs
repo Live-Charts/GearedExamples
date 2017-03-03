@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
@@ -23,7 +24,7 @@ namespace WpfGeared.Home
         {
             var sample = (SampleVm) ((Border) sender).DataContext;
             var hvm = (HomeViewModel) DataContext;
-            hvm.Content = sample.Content;
+            hvm.Content = (UserControl) Activator.CreateInstance(sample.Content);
             hvm.IsMenuOpen = false;
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace Wpf.Home
@@ -16,7 +17,7 @@ namespace Wpf.Home
         public string Title { get; set; }
         public ImageSource ImageSource { get; set; }
         public string Text { get; set; }
-        public UserControl Content { get; set; }
+        public Type Content { get; set; }
     }
 }
 
