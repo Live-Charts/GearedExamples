@@ -45,6 +45,18 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LiveCharts, Version=0.9.4.0, Culture=neutral, PublicKeyToken=c5935629d38af058, processorArchitecture=MSIL">
+      <HintPath>..\..\VirtualizedValues\packages\LiveCharts.0.9.4\lib\net45\LiveCharts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LiveCharts.Geared, Version=1.2.5.0, Culture=neutral, PublicKeyToken=7292f245d14ab8bf, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Geared.1.2.5\lib\net45\LiveCharts.Geared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.4.0, Culture=neutral, PublicKeyToken=3b585c2a5f1a92c1, processorArchitecture=MSIL">
+      <HintPath>..\..\VirtualizedValues\packages\LiveCharts.Wpf.0.9.4\lib\net45\LiveCharts.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MahApps.Metro, Version=1.4.3.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <HintPath>..\..\VirtualizedValues\packages\MahApps.Metro.1.4.3\lib\net40\MahApps.Metro.dll</HintPath>
       <Private>True</Private>
@@ -81,10 +93,12 @@
     <Compile Include="DynamicAxisUnit\DynamicAxisUnitVm.cs" />
     <Compile Include="DynamicAxisUnit\VisitsByDateTime.cs" />
     <Compile Include="FianancialSeries\DataProvider.cs" />
+    <Compile Include="FianancialSeries\DataProviderPoint.cs" />
     <Compile Include="FianancialSeries\FinancialSeriesView.xaml.cs">
       <DependentUpon>FinancialSeriesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="FianancialSeries\FinancialSeriesViewModel.cs" />
+    <Compile Include="FianancialSeries\RelayCommand.cs" />
     <Compile Include="Histogram\DataProvider.cs" />
     <Compile Include="Histogram\HistogramView.xaml.cs">
       <DependentUpon>HistogramView.xaml</DependentUpon>
@@ -102,6 +116,12 @@
       <DependentUpon>MultipleSeriesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MultipleSeriesTest\MultipleSeriesVm.cs" />
+    <Compile Include="Scatter\CustomScatterPoint.cs" />
+    <Compile Include="Scatter\MarkerShape.cs" />
+    <Compile Include="Scatter\ScatterView.xaml.cs">
+      <DependentUpon>ScatterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Scatter\ScatterViewModel.cs" />
     <Compile Include="Scrollable\ScrollableViewModel.cs" />
     <Compile Include="Scrollable\ScrollableView.xaml.cs">
       <DependentUpon>ScrollableView.xaml</DependentUpon>
@@ -127,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\ChartsResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Scatter\ScatterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -205,21 +229,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\chevron.png" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Users\btord\Source\Repos\Live-Charts\Core40\Core40.csproj">
-      <Project>{f261c3d7-6194-4625-9516-044081b06028}</Project>
-      <Name>Core40</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Users\btord\Source\Repos\Live-Charts\WpfView\WpfView.csproj">
-      <Project>{4d253423-ae05-47f6-a59d-9162ec0bb1f2}</Project>
-      <Name>WpfView</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\VirtualizedValues\VirtualizedValues\GearedValues.csproj">
-      <Project>{101a4b0f-8f02-415d-a613-f1b1602a7044}</Project>
-      <Name>GearedValues</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

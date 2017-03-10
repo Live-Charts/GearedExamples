@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="WpfGeared.Scatter.ScatterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfGeared.Scatter"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared"
+             xmlns:geometries="clr-namespace:LiveCharts.Geared.Geometries;assembly=LiveCharts.Geared"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             Name="View">
+    <UserControl.DataContext>
+        <local:ScatterViewModel></local:ScatterViewModel>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Click="GetDataOnClick">Get Data</Button>
+        <lvc:CartesianChart Grid.Row="1" DisableAnimations="True" Zoom="Xy" DataTooltip="{x:Null}">
+            <lvc:CartesianChart.Series>
+                <geared:GScatterSeries Values="{Binding Values2}"
+                                       GearedPointGeometry="{x:Static geometries:GearedGeometries.Circle}"
+                                       MaxPointShapeDiameter="8"
+                                       Fill="#EF6C00"></geared:GScatterSeries>
+                <geared:GScatterSeries Values="{Binding Values1}"
+                                       MaxPointShapeDiameter="8"
+                                       Fill="#283593"
+                                       Stroke="#283593"
+                                       StrokeThickness="2">
+                    <geared:GScatterSeries.GearedPointGeometry>
+                        <local:MarkerShape></local:MarkerShape>
+                    </geared:GScatterSeries.GearedPointGeometry>
+                </geared:GScatterSeries>
+            </lvc:CartesianChart.Series>
+        </lvc:CartesianChart>
+    </Grid>
+</UserControl>

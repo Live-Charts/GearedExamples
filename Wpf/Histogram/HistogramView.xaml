@@ -7,11 +7,14 @@
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             Name="Control">
     <UserControl.DataContext>
         <local:HistogramViewModel></local:HistogramViewModel>
     </UserControl.DataContext>
     <Grid>
+        <!--requires update-->
+        <!--
         <Grid.Resources>
             <Style TargetType="geared:GColumnSeries">
                 <Setter Property="ColumnPadding" Value="0"></Setter>
@@ -19,12 +22,16 @@
                 <Setter Property="SharesPosition" Value="False"></Setter>
             </Style>
         </Grid.Resources>
-        <lvc:CartesianChart>
+        <lvc:CartesianChart DisableAnimations="True" DataTooltip="{x:Null}">
             <lvc:CartesianChart.Series>
-                <geared:GColumnSeries Values="{Binding Values1}" Fill="#CB2194F1"></geared:GColumnSeries>
-                <geared:GColumnSeries Values="{Binding Values2}" Fill="#CBF24336"></geared:GColumnSeries>
-                <geared:GColumnSeries Values="{Binding Values3}" Fill="#CBFDBF07"></geared:GColumnSeries>
+                <geared:GColumnSeries Values="{Binding Values1}" Fill="#CB2194F1" ScalesXAt="0"></geared:GColumnSeries>
+                <geared:GColumnSeries Values="{Binding Values2}" Fill="#CBF24336" ScalesXAt="1" Panel.ZIndex="1"></geared:GColumnSeries>
+                <geared:GColumnSeries Values="{Binding Values3}" Fill="#CBFDBF07" ScalesXAt="1"></geared:GColumnSeries>
             </lvc:CartesianChart.Series>
-        </lvc:CartesianChart>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis ShowLabels="False"></lvc:Axis>
+                <lvc:Axis ShowLabels="False"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>-->
     </Grid>
 </UserControl>

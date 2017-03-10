@@ -6,9 +6,11 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using Wpf.Home;
 using WpfGeared.DynamicAxisUnit;
+using WpfGeared.FianancialSeries;
 using WpfGeared.Histogram;
 using WpfGeared.Intro;
 using WpfGeared.MultipleSeriesTest;
+using WpfGeared.Scatter;
 using WpfGeared.SpeedTest;
 using ScrollableView = WpfGeared.Scrollable.ScrollableView;
 using TestingGearedView = WpfGeared.Testing_Geared.TestingGearedView;
@@ -59,6 +61,16 @@ namespace WpfGeared.Home
                 {
                     Title = "Dynamic Axis",
                     Content = typeof(DynamicAxisUnitView)
+                },
+                new SampleVm
+                {
+                    Title = "Financial Series",
+                    Content = typeof(FinancialSeriesView)
+                },
+                new SampleVm
+                {
+                    Title = "Scatter",
+                    Content = typeof(ScatterView)
                 }
             };
 

@@ -62,7 +62,7 @@
                 <TextBlock Grid.Row="1" Grid.Column="0" Opacity="{StaticResource SecondaryTextOpacity}" VerticalAlignment="Center">Quality</TextBlock>
                 <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Source={StaticResource Q}}" SelectedItem="{Binding Quality}" Margin="5"/>
                 
-                <TextBlock Grid.Row="2" Grid.Column="0" Opacity="{StaticResource SecondaryTextOpacity}" VerticalAlignment="Center">Disable Animations</TextBlock>
+                <!--<TextBlock Grid.Row="2" Grid.Column="0" Opacity="{StaticResource SecondaryTextOpacity}" VerticalAlignment="Center">Disable Animations</TextBlock>
                 <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
                     <CheckBox Checked="Animated_OnChecked" Name="Animated" IsChecked="False" HorizontalAlignment="Left" Margin="5"></CheckBox>
                     <ComboBox Name="Speed">
@@ -72,7 +72,7 @@
                             <ComboBoxItem IsSelected="True">Fast</ComboBoxItem>
                         </ComboBox.Items>
                     </ComboBox>
-                </StackPanel>
+                </StackPanel>-->
                 <Button Grid.Row="3" Grid.Column="1" Margin="5" Click="GoOnClick" Height="30" Width="50" HorizontalAlignment="Right" Padding="0">
                     Go
                 </Button>
@@ -80,7 +80,7 @@
         </Grid>
         <lvc:CartesianChart Grid.Row="1" Margin="10" Zoom="X" 
                             Series="{Binding SeriesCollection}" 
-                            DisableAnimations="{Binding ElementName=Animated, Path=IsChecked}"
+                            DisableAnimations="True"
                             AnimationsSpeed="{Binding ElementName=Speed, Path=Text, Converter={StaticResource SpeedConverter}}"
                             MinWidth="100" MinHeight="100"
                             BorderThickness="1">

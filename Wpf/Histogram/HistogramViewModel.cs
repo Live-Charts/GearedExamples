@@ -7,7 +7,7 @@ namespace WpfGeared.Histogram
         public HistogramViewModel()
         {
             Values1 = DataProvider.GetNormalDistribution(10, 50, 100).AsGearedValues();
-            Values2 = DataProvider.GetNormalDistribution(15, 55, 150).AsGearedValues();
+            Values2 = DataProvider.GetNormalDistribution(15, 55, 250).AsGearedValues();
             Values3 = DataProvider.GetNormalDistribution(8, 45, 60).AsGearedValues();
         }
 

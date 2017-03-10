@@ -16,7 +16,7 @@ namespace WpfGeared.SpeedTest
 
         public SpeedTestVm()
         {
-            Values = new GearedValues<double>().WithQuality(Quality.High);
+            Values = new GearedValues<double>().WithQuality(Quality.Highest);
             ReadCommand = new RelayCommand(Read);
             StopCommand = new RelayCommand(Stop);
             CleaCommand = new RelayCommand(Clear);

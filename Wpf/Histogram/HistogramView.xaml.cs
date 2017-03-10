@@ -24,5 +24,10 @@ namespace WpfGeared.Histogram
         {
             InitializeComponent();
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Control.DataContext = new HistogramViewModel();
+        }
     }
 }
