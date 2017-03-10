@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using LiveCharts.Geared;
 
 namespace WpfGeared.Scatter

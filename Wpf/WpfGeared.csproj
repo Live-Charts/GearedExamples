@@ -49,8 +49,8 @@
       <HintPath>..\..\VirtualizedValues\packages\LiveCharts.0.9.4\lib\net45\LiveCharts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LiveCharts.Geared, Version=1.2.5.0, Culture=neutral, PublicKeyToken=7292f245d14ab8bf, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.Geared.1.2.5\lib\net45\LiveCharts.Geared.dll</HintPath>
+    <Reference Include="LiveCharts.Geared, Version=1.2.6.0, Culture=neutral, PublicKeyToken=7292f245d14ab8bf, processorArchitecture=MSIL">
+      <HintPath>..\..\VirtualizedValues\packages\LiveCharts.Geared.1.2.6\lib\net45\LiveCharts.Geared.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="LiveCharts.Wpf, Version=0.9.4.0, Culture=neutral, PublicKeyToken=3b585c2a5f1a92c1, processorArchitecture=MSIL">

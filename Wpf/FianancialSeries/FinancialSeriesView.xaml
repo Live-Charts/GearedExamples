@@ -34,6 +34,9 @@
                           MinValue="{Binding MinAxisLimit, Mode=TwoWay}" 
                           MaxValue="{Binding MaxAxisLimit, Mode=TwoWay}"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.DataTooltip>
+                <lvc:DefaultTooltip ShowSeries="False"></lvc:DefaultTooltip>
+            </lvc:CartesianChart.DataTooltip>
         </lvc:CartesianChart>
     </Grid>
 </UserControl>

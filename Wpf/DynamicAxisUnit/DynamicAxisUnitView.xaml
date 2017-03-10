@@ -29,8 +29,7 @@
             <Button Command="{Binding ByHour}">Hour</Button>
             <Button Command="{Binding ByDay}">Day</Button>
         </StackPanel>
-        <!--requires update-->
-        <!--<lvc:CartesianChart Grid.Row="2" Zoom="None" Pan="X">
+        <lvc:CartesianChart Grid.Row="2" Zoom="None" Pan="X">
             <lvc:CartesianChart.Series>
                 <geared:GColumnSeries Values="{Binding Values}"/>
             </lvc:CartesianChart.Series>
@@ -45,6 +44,6 @@
                     </lvc:Axis.Separator>
                 </lvc:Axis>
             </lvc:CartesianChart.AxisX>
-        </lvc:CartesianChart>-->
+        </lvc:CartesianChart>
     </Grid>
 </UserControl>

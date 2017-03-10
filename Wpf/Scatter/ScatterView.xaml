@@ -19,7 +19,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Button Grid.Row="0" Click="GetDataOnClick">Get Data</Button>
-        <lvc:CartesianChart Grid.Row="1" DisableAnimations="True" Zoom="Xy" DataTooltip="{x:Null}">
+        <lvc:CartesianChart Grid.Row="1" DisableAnimations="True" Zoom="Xy">
             <lvc:CartesianChart.Series>
                 <geared:GScatterSeries Values="{Binding Values2}"
                                        GearedPointGeometry="{x:Static geometries:GearedGeometries.Circle}"

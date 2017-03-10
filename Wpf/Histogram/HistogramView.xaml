@@ -13,8 +13,6 @@
         <local:HistogramViewModel></local:HistogramViewModel>
     </UserControl.DataContext>
     <Grid>
-        <!--requires update-->
-        <!--
         <Grid.Resources>
             <Style TargetType="geared:GColumnSeries">
                 <Setter Property="ColumnPadding" Value="0"></Setter>
@@ -32,6 +30,6 @@
                 <lvc:Axis ShowLabels="False"></lvc:Axis>
                 <lvc:Axis ShowLabels="False"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
-        </lvc:CartesianChart>-->
+        </lvc:CartesianChart>
     </Grid>
 </UserControl>
