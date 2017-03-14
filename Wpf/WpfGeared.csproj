@@ -45,16 +45,16 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LiveCharts, Version=0.9.4.0, Culture=neutral, PublicKeyToken=c5935629d38af058, processorArchitecture=MSIL">
-      <HintPath>..\..\VirtualizedValues\packages\LiveCharts.0.9.4\lib\net45\LiveCharts.dll</HintPath>
+    <Reference Include="LiveCharts, Version=0.9.5.0, Culture=neutral, PublicKeyToken=c5935629d38af058, processorArchitecture=MSIL">
+      <HintPath>..\..\VirtualizedValues\packages\LiveCharts.0.9.5\lib\net45\LiveCharts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LiveCharts.Geared, Version=1.2.6.0, Culture=neutral, PublicKeyToken=7292f245d14ab8bf, processorArchitecture=MSIL">
-      <HintPath>..\..\VirtualizedValues\packages\LiveCharts.Geared.1.2.6\lib\net45\LiveCharts.Geared.dll</HintPath>
+    <Reference Include="LiveCharts.Geared, Version=1.2.7.0, Culture=neutral, PublicKeyToken=7292f245d14ab8bf, processorArchitecture=MSIL">
+      <HintPath>..\..\VirtualizedValues\packages\LiveCharts.Geared.1.2.7\lib\net45\LiveCharts.Geared.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LiveCharts.Wpf, Version=0.9.4.0, Culture=neutral, PublicKeyToken=3b585c2a5f1a92c1, processorArchitecture=MSIL">
-      <HintPath>..\..\VirtualizedValues\packages\LiveCharts.Wpf.0.9.4\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.5.0, Culture=neutral, PublicKeyToken=3b585c2a5f1a92c1, processorArchitecture=MSIL">
+      <HintPath>..\..\VirtualizedValues\packages\LiveCharts.Wpf.0.9.5\lib\net45\LiveCharts.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MahApps.Metro, Version=1.4.3.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
@@ -158,6 +158,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="StackedSeries\StackedSeriesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Testing Geared\TestingGearedView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -171,6 +175,13 @@
       <DependentUpon>SpeedTestView.xaml</DependentUpon>
     </Compile>
     <Compile Include="SpeedTest\SpeedTestVm.cs" />
+    <Compile Include="StackedSeries\DetailedLecture.cs" />
+    <Compile Include="StackedSeries\LecturePoint.cs" />
+    <Compile Include="StackedSeries\RelayCommand.cs" />
+    <Compile Include="StackedSeries\StackedSeriesView.xaml.cs">
+      <DependentUpon>StackedSeriesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StackedSeries\StackedSeriesViewModel.cs" />
     <Compile Include="Testing Geared\SpeedConverter.cs" />
     <Compile Include="Testing Geared\TestingGearedView.xaml.cs">
       <DependentUpon>TestingGearedView.xaml</DependentUpon>
@@ -230,6 +241,7 @@
   <ItemGroup>
     <Resource Include="Resources\chevron.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

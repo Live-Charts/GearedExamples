@@ -12,6 +12,7 @@ using WpfGeared.Intro;
 using WpfGeared.MultipleSeriesTest;
 using WpfGeared.Scatter;
 using WpfGeared.SpeedTest;
+using WpfGeared.StackedSeries;
 using ScrollableView = WpfGeared.Scrollable.ScrollableView;
 using TestingGearedView = WpfGeared.Testing_Geared.TestingGearedView;
 
@@ -71,6 +72,11 @@ namespace WpfGeared.Home
                 {
                     Title = "Scatter",
                     Content = typeof(ScatterView)
+                },
+                new SampleVm
+                {
+                    Title = "Adding many pts per read",
+                    Content = typeof(StackedSeriesView)
                 }
             };
 

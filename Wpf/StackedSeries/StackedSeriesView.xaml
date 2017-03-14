@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="WpfGeared.StackedSeries.StackedSeriesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfGeared.StackedSeries"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <local:StackedSeriesViewModel></local:StackedSeriesViewModel>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Command="{Binding ReadCommand}">Start/Stop</Button>
+            <Button Command="{Binding PictureLast10Command}">Picture last 10 secs</Button>
+            <Button Command="{Binding StayInLast10Command}">Real time</Button>
+        </StackPanel>
+        <lvc:CartesianChart Grid.Row="1" DisableAnimations="True" Pan="X">
+            <lvc:CartesianChart.Series>
+                <geared:GLineSeries Values="{Binding Values1}"
+                                    StrokeThickness="0"
+                                    Fill="#FF7043"
+                                    AreaLimit="0"
+                                    PointGeometry="{x:Null}"
+                                    Panel.ZIndex="3"/>
+                <geared:GLineSeries Values="{Binding Values2}"
+                                    StrokeThickness="0"
+                                    Fill="#64B4F5"
+                                    AreaLimit="0"
+                                    PointGeometry="{x:Null}"
+                                    Panel.ZIndex="2"/>
+                <geared:GLineSeries Values="{Binding Values3}"
+                                    StrokeThickness="0"
+                                    Fill="#E47272"
+                                    AreaLimit="0"
+                                    PointGeometry="{x:Null}"
+                                    Panel.ZIndex="1"/>
+            </lvc:CartesianChart.Series>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis LabelFormatter="{Binding XFormatter}"
+                          MinValue="{Binding From, Mode=TwoWay}"
+                          MaxValue="{Binding To, Mode=TwoWay}">
+                    <lvc:Axis.Separator>
+                        <lvc:Separator Step="{Binding Step}" IsEnabled="False"></lvc:Separator>
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis MinValue="-1" MaxValue="1">
+                    <lvc:Axis.Separator>
+                        <lvc:Separator Stroke="#ECECEC"></lvc:Separator>
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+        
+        <!--the scroll bar chart-->
+        <lvc:CartesianChart Grid.Row="2" 
+                            DisableAnimations="True" 
+                            ScrollMode="X" 
+                            ScrollHorizontalFrom="{Binding From, Mode=TwoWay}"
+                            ScrollHorizontalTo="{Binding To, Mode=TwoWay}"
+                            ScrollBarFill="#25303030"
+                            DataTooltip="{x:Null}"
+                            Hoverable="False">
+            <lvc:CartesianChart.Series>
+                <geared:GLineSeries Values="{Binding Values3}" 
+                                    StrokeThickness="0"
+                                    Fill="#D84315"
+                                    AreaLimit="0"
+                                    PointGeometry="{x:Null}"/>
+            </lvc:CartesianChart.Series>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis ShowLabels="False">
+                    <lvc:Axis.Separator>
+                        <lvc:Separator IsEnabled="False"></lvc:Separator>
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis ShowLabels="False" MinValue="-1" MaxValue="1">
+                    <lvc:Axis.Separator>
+                        <lvc:Separator IsEnabled="False"></lvc:Separator>
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+    </Grid>
+</UserControl>
+
+
+
