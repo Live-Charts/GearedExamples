@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using LiveCharts.Geared;
 
-namespace WinForms.SpeedTest
+namespace Geared.Winforms.SpeedTest
 {
     public class SpeedTestVm
     {

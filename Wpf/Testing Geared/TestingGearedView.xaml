@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WpfGeared.Testing_Geared.TestingGearedView"
+﻿<UserControl x:Class="Geared.Wpf.Testing_Geared.TestingGearedView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:testingGeared="clr-namespace:WpfGeared.Testing_Geared"
+             xmlns:testingGeared1="clr-namespace:Geared.Wpf.Testing_Geared"
         mc:Ignorable="d" Background="White"
              d:DesignWidth="600">
     <UserControl.Resources>
@@ -15,10 +15,10 @@
                 <x:Type TypeName="geared:Quality" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
-        <testingGeared:SpeedConverter x:Key="SpeedConverter" />
+        <testingGeared1:SpeedConverter x:Key="SpeedConverter" />
     </UserControl.Resources>
     <UserControl.DataContext>
-        <testingGeared:TestingGearedViewModel />
+        <testingGeared1:TestingGearedViewModel />
     </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -62,17 +62,6 @@
                 <TextBlock Grid.Row="1" Grid.Column="0" Opacity="{StaticResource SecondaryTextOpacity}" VerticalAlignment="Center">Quality</TextBlock>
                 <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Source={StaticResource Q}}" SelectedItem="{Binding Quality}" Margin="5"/>
                 
-                <!--<TextBlock Grid.Row="2" Grid.Column="0" Opacity="{StaticResource SecondaryTextOpacity}" VerticalAlignment="Center">Disable Animations</TextBlock>
-                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-                    <CheckBox Checked="Animated_OnChecked" Name="Animated" IsChecked="False" HorizontalAlignment="Left" Margin="5"></CheckBox>
-                    <ComboBox Name="Speed">
-                        <ComboBox.Items>
-                            <ComboBoxItem>Slow</ComboBoxItem>
-                            <ComboBoxItem>Medium</ComboBoxItem>
-                            <ComboBoxItem IsSelected="True">Fast</ComboBoxItem>
-                        </ComboBox.Items>
-                    </ComboBox>
-                </StackPanel>-->
                 <Button Grid.Row="3" Grid.Column="1" Margin="5" Click="GoOnClick" Height="30" Width="50" HorizontalAlignment="Right" Padding="0">
                     Go
                 </Button>

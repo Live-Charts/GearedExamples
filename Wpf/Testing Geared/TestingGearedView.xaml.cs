@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace WpfGeared.Testing_Geared
+namespace Geared.Wpf.Testing_Geared
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

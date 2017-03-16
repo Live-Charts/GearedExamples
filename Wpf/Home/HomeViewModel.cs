@@ -4,19 +4,18 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Controls;
 using System.Windows.Data;
-using Wpf.Home;
-using WpfGeared.DynamicAxisUnit;
-using WpfGeared.FianancialSeries;
-using WpfGeared.Histogram;
-using WpfGeared.Intro;
-using WpfGeared.MultipleSeriesTest;
-using WpfGeared.Scatter;
-using WpfGeared.SpeedTest;
-using WpfGeared.StackedSeries;
-using ScrollableView = WpfGeared.Scrollable.ScrollableView;
-using TestingGearedView = WpfGeared.Testing_Geared.TestingGearedView;
+using Geared.Wpf.Intro;
+using DynamicAxisUnitView = Geared.Wpf.DynamicAxisUnit.DynamicAxisUnitView;
+using FinancialSeriesView = Geared.Wpf.FianancialSeries.FinancialSeriesView;
+using HistogramView = Geared.Wpf.Histogram.HistogramView;
+using MultipleSeriesView = Geared.Wpf.MultipleSeriesTest.MultipleSeriesView;
+using ScatterView = Geared.Wpf.Scatter.ScatterView;
+using ScrollableView = Geared.Wpf.Scrollable.ScrollableView;
+using SpeedTestView = Geared.Wpf.SpeedTest.SpeedTestView;
+using StackedSeriesView = Geared.Wpf.StackedSeries.StackedSeriesView;
+using TestingGearedView = Geared.Wpf.Testing_Geared.TestingGearedView;
 
-namespace WpfGeared.Home
+namespace Geared.Wpf.Home
 {
     public class HomeViewModel: INotifyPropertyChanged
     {

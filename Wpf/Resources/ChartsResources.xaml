@@ -16,6 +16,6 @@
     </Style>
     <Style TargetType="wpf:Separator">
         <Setter Property="StrokeThickness" Value="1.5"></Setter>
-        <Setter Property="Stroke" Value="#BFBFBF"></Setter>
+        <Setter Property="Stroke" Value="#E6E6E6"></Setter>
     </Style>
 </ResourceDictionary>

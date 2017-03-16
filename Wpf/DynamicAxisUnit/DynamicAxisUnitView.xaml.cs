@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace WpfGeared.DynamicAxisUnit
+namespace Geared.Wpf.DynamicAxisUnit
 {
     /// <summary>
     /// Interaction logic for DynamicAxisUnitView.xaml

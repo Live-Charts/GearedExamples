@@ -1,20 +1,20 @@
 ﻿using System;
-using System.Data;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Media;
 using LiveCharts;
 using LiveCharts.Events;
 using LiveCharts.Geared;
 using LiveCharts.Wpf;
+using Binding = System.Windows.Data.Binding;
 
-namespace WinForms.ScrollableChart
+namespace Geared.Winforms.ScrollableChart
 {
     public partial class ScrollableExample : Form
     {
         private ScrollableViewModel _viewModel = new ScrollableViewModel();
-        private Axis _syncedAxis = new Axis();
-
+        
         public ScrollableExample()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace WinForms.ScrollableChart
             //Cartesian Chart
             cartesianChart1.Zoom = ZoomingOptions.X;
             cartesianChart1.DisableAnimations = true;
-            cartesianChart1.Base.Hoverable = false;
+            cartesianChart1.Hoverable = false;
 
             cartesianChart1.Series.Add(new GLineSeries
             {
@@ -32,20 +32,24 @@ namespace WinForms.ScrollableChart
                 Fill = new SolidColorBrush(Color.FromRgb(33, 147, 240)),
                 PointGeometry = null
             });
-            _syncedAxis.LabelFormatter = _viewModel.Formatter;
-            _syncedAxis.Separator = new Separator { IsEnabled = false };
-            _syncedAxis.RangeChanged += Axis_OnRangeChanged;
-            cartesianChart1.AxisX.Add(_syncedAxis);
-            cartesianChart1.Update(true, true);
+            var ax = new Axis
+            {
+                LabelFormatter = _viewModel.Formatter,
+                Separator = new Separator {IsEnabled = false}
+            };
+            ax.RangeChanged += Axis_OnRangeChanged;
+            cartesianChart1.AxisX.Add(ax);
 
             //Scroller Chart
-            scrollerChart.Base.ScrollMode = ScrollMode.X;
-            scrollerChart.Base.ScrollBarFill = new SolidColorBrush(Color.FromArgb(37, 48, 48, 48));
+            scrollerChart.DisableAnimations = true;
+            scrollerChart.ScrollMode = ScrollMode.X;
+            scrollerChart.ScrollBarFill = new SolidColorBrush(Color.FromArgb(37, 48, 48, 48));
             scrollerChart.DataTooltip = null;
-            scrollerChart.Base.Hoverable = false;
+            scrollerChart.Hoverable = false;
             scrollerChart.DataTooltip = null;
-            scrollerChart.AxisX.Add(new Axis
+            scrollerChart.AxisX.Add(new Axis 
             {
+                LabelFormatter = x => new DateTime((long) x).ToString("yyyy"),
                 Separator = new Separator {IsEnabled = false},
                 IsMerged = true,
                 Foreground = new SolidColorBrush(Color.FromArgb(152, 0, 0, 0)),
@@ -61,18 +65,30 @@ namespace WinForms.ScrollableChart
                 PointGeometry = null,
                 AreaLimit = 0
             });
-        }
 
-        private void UpdateScrollBar()
-        {
-            scrollerChart.Base.ScrollHorizontalFrom = _syncedAxis.ActualMinValue;
-            scrollerChart.Base.ScrollHorizontalTo = _syncedAxis.ActualMaxValue;
+            //lets bind the charts
+
+            //the assistant synchronizes both charts
+            //here he are setting the initial range
+            var assistant = new BindingAssistant
+            {
+                From = _viewModel.From,
+                To = _viewModel.To
+            };
+
+            cartesianChart1.AxisX[0].SetBinding(Axis.MinValueProperty, 
+                new Binding {Path = new PropertyPath("From"), Source = assistant, Mode = BindingMode.TwoWay});
+            cartesianChart1.AxisX[0].SetBinding(Axis.MaxValueProperty,
+                new Binding { Path = new PropertyPath("To"), Source = assistant, Mode = BindingMode.TwoWay });
+
+            scrollerChart.Base.SetBinding(CartesianChart.ScrollHorizontalFromProperty,
+                new Binding { Path = new PropertyPath("From"), Source = assistant, Mode = BindingMode.TwoWay});
+            scrollerChart.Base.SetBinding(CartesianChart.ScrollHorizontalToProperty,
+                new Binding { Path = new PropertyPath("To"), Source = assistant, Mode = BindingMode.TwoWay });
         }
 
         private void Axis_OnRangeChanged(RangeChangedEventArgs eventargs)
         {
-            UpdateScrollBar();
-
             var currentRange = eventargs.Range;
 
             if (currentRange < TimeSpan.TicksPerDay * 2)
@@ -94,11 +110,6 @@ namespace WinForms.ScrollableChart
             }
 
             _viewModel.Formatter = x => new DateTime((long)x).ToString("yyyy");
-        }
-
-        private void ScrollableExample_Load(object sender, EventArgs e)
-        {
-            //UpdateScrollBar();
         }
     }
 }

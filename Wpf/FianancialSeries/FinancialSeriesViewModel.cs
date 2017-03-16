@@ -1,9 +1,8 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
 using LiveCharts.Geared;
 
-namespace WpfGeared.FianancialSeries
+namespace Geared.Wpf.FianancialSeries
 {
     public class FinancialSeriesViewModel : INotifyPropertyChanged
     {
@@ -16,23 +15,23 @@ namespace WpfGeared.FianancialSeries
         {
             _data = DataProvider.Get.ToArray();
 
-            Last15DaysCommand = new RelayCommand(SetLast15Days);
-            Last3MonthsCommand = new RelayCommand(SetLast3Months);
-            LastYearCommand = new RelayCommand(SetLastYear);
+            Last45Command = new RelayCommand(SetLast45);
+            Last90Command = new RelayCommand(SetLast90);
+            Last180Command = new RelayCommand(SetLast180);
+            Last365Command = new RelayCommand(SetLast365);
             Last5YearsCommand = new RelayCommand(SetLast5Years);
-            Last10YearsCommand = new RelayCommand(SetLast10Years);
 
             Values = _data.AsGearedValues();
             Labels = _data.Select(x => x.DateTime.ToString("dd MMM yy")).ToArray();
 
-            SetLast15Days();
+            SetLast45();
         }
 
-        public RelayCommand Last15DaysCommand { get; set; }
-        public RelayCommand Last3MonthsCommand { get; set; }
-        public RelayCommand LastYearCommand { get; set; }
+        public RelayCommand Last45Command { get; set; }
+        public RelayCommand Last90Command { get; set; }
+        public RelayCommand Last180Command { get; set; }
+        public RelayCommand Last365Command { get; set; }
         public RelayCommand Last5YearsCommand { get; set; }
-        public RelayCommand Last10YearsCommand { get; set; }
         
         public GearedValues<DataProviderPoint> Values { get; set; }
 
@@ -66,19 +65,25 @@ namespace WpfGeared.FianancialSeries
             }
         }
 
-        private void SetLast15Days()
+        private void SetLast45()
         {
-            MinAxisLimit = _data.Length - 15;
+            MinAxisLimit = _data.Length - 45;
             MaxAxisLimit = _data.Length;
         }
 
-        private void SetLast3Months()
+        private void SetLast90()
         {
-            MinAxisLimit = _data.Length - 30.4*3;
+            MinAxisLimit = _data.Length - 90;
             MaxAxisLimit = _data.Length;
         }
 
-        private void SetLastYear()
+        private void SetLast180()
+        {
+            MinAxisLimit = _data.Length - 180;
+            MaxAxisLimit = _data.Length;
+        }
+
+        private void SetLast365()
         {
             MinAxisLimit = _data.Length - 365;
             MaxAxisLimit = _data.Length;
@@ -86,14 +91,8 @@ namespace WpfGeared.FianancialSeries
 
         private void SetLast5Years()
         {
-            MinAxisLimit = _data.Length - 365*5;
-            MaxAxisLimit = _data.Length;
-        }
-
-        private void SetLast10Years()
-        {
             //Auto scale min value according to data in chart
-            MinAxisLimit = double.NaN;
+            MinAxisLimit = _data.Length-365*5;
             MaxAxisLimit = _data.Length;
         }
 

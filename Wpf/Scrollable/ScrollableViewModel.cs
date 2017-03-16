@@ -4,7 +4,7 @@ using System.ComponentModel;
 using LiveCharts.Defaults;
 using LiveCharts.Geared;
 
-namespace WpfGeared.Scrollable
+namespace Geared.Wpf.Scrollable
 {
     public class ScrollableViewModel : INotifyPropertyChanged
     {

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace WpfGeared.MultipleSeriesTest
+namespace Geared.Wpf.MultipleSeriesTest
 {
     /// <summary>
     /// Interaction logic for RecomendedSettingsView.xaml

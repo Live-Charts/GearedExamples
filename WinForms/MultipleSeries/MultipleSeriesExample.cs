@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using Geared.Winforms.MultipleSeries;
 using LiveCharts;
-using WpfGeared.MultipleSeriesTest;
 
 namespace WinForms.MultipleSeries
 {

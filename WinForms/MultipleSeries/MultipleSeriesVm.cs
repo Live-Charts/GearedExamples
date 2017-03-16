@@ -3,7 +3,7 @@ using System.Windows.Media;
 using LiveCharts;
 using LiveCharts.Geared;
 
-namespace WpfGeared.MultipleSeriesTest
+namespace Geared.Winforms.MultipleSeries
 {
     public class MultipleSeriesVm
     {

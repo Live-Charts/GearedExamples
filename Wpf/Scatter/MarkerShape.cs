@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using LiveCharts.Geared.Geometries;
 
-namespace WpfGeared.Scatter
+namespace Geared.Wpf.Scatter
 {
     public class MarkerShape : GeometryShape
     {

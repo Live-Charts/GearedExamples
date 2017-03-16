@@ -2,7 +2,7 @@
 using LiveCharts;
 using LiveCharts.Configurations;
 
-namespace WinForms.DynamicAxis
+namespace Geared.Winforms.DynamicAxis
 {
     public class VisitsByDateTime
     {

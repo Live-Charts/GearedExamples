@@ -2,7 +2,7 @@
 using LiveCharts;
 using LiveCharts.Configurations;
 
-namespace WpfGeared.DynamicAxisUnit
+namespace Geared.Wpf.DynamicAxisUnit
 {
     public class VisitsByDateTime
     {

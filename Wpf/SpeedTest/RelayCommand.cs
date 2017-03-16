@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Input;
 
-namespace WpfGeared.SpeedTest
+namespace Geared.Wpf.SpeedTest
 {
     public class RelayCommand : ICommand
     {

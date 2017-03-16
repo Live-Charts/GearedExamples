@@ -1,7 +1,7 @@
 ﻿using LiveCharts;
 using LiveCharts.Configurations;
 
-namespace WpfGeared.Scatter
+namespace Geared.Wpf.Scatter
 {
     public class CustomScatterPoint
     {

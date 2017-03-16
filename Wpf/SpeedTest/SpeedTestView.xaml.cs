@@ -1,8 +1,6 @@
 ﻿using System.Windows.Controls;
-using LiveCharts;
-using LiveCharts.Configurations;
 
-namespace WpfGeared.SpeedTest
+namespace Geared.Wpf.SpeedTest
 {
     /// <summary>
     /// Interaction logic for SpeedTestView.xaml

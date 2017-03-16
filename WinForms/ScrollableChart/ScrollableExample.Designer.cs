@@ -1,4 +1,4 @@
-﻿namespace WinForms.ScrollableChart
+﻿namespace Geared.Winforms.ScrollableChart
 {
     partial class ScrollableExample
     {
@@ -59,7 +59,6 @@
             this.Controls.Add(this.cartesianChart1);
             this.Name = "ScrollableExample";
             this.Text = "ScrollableExample";
-            this.Load += new System.EventHandler(this.ScrollableExample_Load);
             this.ResumeLayout(false);
 
         }

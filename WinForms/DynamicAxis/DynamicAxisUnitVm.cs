@@ -1,7 +1,8 @@
 ﻿using System;
 using LiveCharts.Geared;
+using WinForms.DynamicAxis;
 
-namespace WinForms.DynamicAxis
+namespace Geared.Winforms.DynamicAxis
 {
     public class DynamicAxisUnitVm
     {

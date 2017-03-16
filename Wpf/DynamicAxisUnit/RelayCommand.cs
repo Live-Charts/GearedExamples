@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace WpfGeared.DynamicAxisUnit
+namespace Geared.Wpf.DynamicAxisUnit
 {
     public class RelayCommand : ICommand
     {

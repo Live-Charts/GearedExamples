@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WpfGeared.Scrollable.ScrollableView"
+﻿<UserControl x:Class="Geared.Wpf.Scrollable.ScrollableView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared"
-        xmlns:scrollable="clr-namespace:WpfGeared.Scrollable"
+        xmlns:scrollable="clr-namespace:Geared.Wpf.Scrollable"
         mc:Ignorable="d">
     <UserControl.DataContext>
         <scrollable:ScrollableViewModel></scrollable:ScrollableViewModel>

@@ -1,16 +1,16 @@
-﻿<UserControl x:Class="WpfGeared.Histogram.HistogramView"
+﻿<UserControl x:Class="Geared.Wpf.Histogram.HistogramView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfGeared.Histogram"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:geared="clr-namespace:LiveCharts.Geared;assembly=LiveCharts.Geared"
+             xmlns:histogram="clr-namespace:Geared.Wpf.Histogram"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              Name="Control">
     <UserControl.DataContext>
-        <local:HistogramViewModel></local:HistogramViewModel>
+        <histogram:HistogramViewModel></histogram:HistogramViewModel>
     </UserControl.DataContext>
     <Grid>
         <Grid.Resources>
@@ -33,3 +33,4 @@
         </lvc:CartesianChart>
     </Grid>
 </UserControl>
+

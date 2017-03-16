@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace WpfGeared
+namespace Geared.Wpf
 {
     /// <summary>
     /// Interaction logic for App.xaml

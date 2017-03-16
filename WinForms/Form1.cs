@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
-using LiveCharts;
-using LiveCharts.Geared;
-using LiveCharts.Wpf;
+using Geared.Winforms.FinancialSeries;
+using Geared.Winforms.Histogram;
+using Geared.Winforms.Scatter;
+using Geared.Winforms.ScrollableChart;
+using Geared.Winforms.StackedSeries;
 using WinForms.DynamicAxis;
 using WinForms.MultipleSeries;
-using WinForms.ScrollableChart;
-using WinForms.SpeedTest;
 
-namespace WinForms
+namespace Geared.Winforms
 {
     public partial class Form1 : Form
     {
@@ -34,7 +34,27 @@ namespace WinForms
 
         private void button4_Click(object sender, EventArgs e)
         {
-            new SpeedTest.SpeedTest().ShowDialog();
+            new WinForms.SpeedTest.SpeedTest().ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            new FinancialSeriesForm().ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            new HistogramForm().ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            new Scatterform().ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            new StackedForm().ShowDialog();
         }
     }
 }

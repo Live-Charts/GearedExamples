@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Geared.Winforms.SpeedTest;
 using LiveCharts.Geared;
 
 namespace WinForms.SpeedTest

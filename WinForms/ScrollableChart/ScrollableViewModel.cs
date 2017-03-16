@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using LiveCharts.Defaults;
 using LiveCharts.Geared;
 
-namespace WinForms.ScrollableChart
+namespace Geared.Winforms.ScrollableChart
 {
     public class ScrollableViewModel
     {

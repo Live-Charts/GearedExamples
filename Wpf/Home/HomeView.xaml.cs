@@ -3,9 +3,8 @@ using System.Diagnostics;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
-using Wpf.Home;
 
-namespace WpfGeared.Home
+namespace Geared.Wpf.Home
 {
     public partial class HomeView
     {

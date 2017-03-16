@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfGeared", "Wpf\WpfGeared.csproj", "{A48EBCEE-B25C-463A-A373-B71FAFE133E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geared.Wpf", "Wpf\Geared.Wpf.csproj", "{A48EBCEE-B25C-463A-A373-B71FAFE133E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms", "WinForms\WinForms.csproj", "{84140C13-13E1-45C5-8D82-88770936A220}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C90DD455-464B-4A65-9A4A-AE774B9799EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geared.WinForms", "WinForms\Geared.WinForms.csproj", "{84140C13-13E1-45C5-8D82-88770936A220}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Linq;
 using LiveCharts.Geared;
 
-namespace WpfGeared.DynamicAxisUnit
+namespace Geared.Wpf.DynamicAxisUnit
 {
     public class DynamicAxisUnitVm : INotifyPropertyChanged
     {

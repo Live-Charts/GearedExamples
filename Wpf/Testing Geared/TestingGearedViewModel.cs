@@ -3,7 +3,7 @@ using System.ComponentModel;
 using LiveCharts;
 using LiveCharts.Geared;
 
-namespace WpfGeared.Testing_Geared
+namespace Geared.Wpf.Testing_Geared
 {
     public class TestingGearedViewModel : INotifyPropertyChanged
     {

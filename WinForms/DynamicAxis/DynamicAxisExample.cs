@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Geared.Winforms.DynamicAxis;
 using LiveCharts;
 using LiveCharts.Geared;
 using LiveCharts.Wpf;
@@ -14,7 +15,7 @@ namespace WinForms.DynamicAxis
             InitializeComponent();
 
             cartesianChart1.Zoom = ZoomingOptions.None;
-            cartesianChart1.Base.Pan = PanningOptions.X; 
+            cartesianChart1.Pan = PanningOptions.X; 
             cartesianChart1.Series.Add(new GColumnSeries
             {
                 Values = _viewModel.Values

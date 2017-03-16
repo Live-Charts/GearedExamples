@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Wpf.Home
+namespace Geared.Wpf.Home
 {
     public class SampleVm
     {

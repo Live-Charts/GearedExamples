@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace WpfGeared.FianancialSeries
+namespace Geared.Wpf.FianancialSeries
 {
     public static class DataProvider
     {
@@ -10,15 +10,6 @@ namespace WpfGeared.FianancialSeries
         {
             get
             {
-                //this object mocks a data provider
-
-
-                //in this case we get our data in a simple array
-                //with the following structure
-                //[open, high, low, close]
-                //i.e.
-                //[10, 11, 5, 7]
-
                 var trend = 0d;
                 var timeStamp = DateTime.Now.AddDays(-350*10);
                 var r = new Random();

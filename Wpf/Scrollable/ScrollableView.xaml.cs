@@ -1,7 +1,7 @@
 ﻿using System;
 using LiveCharts.Events;
 
-namespace WpfGeared.Scrollable
+namespace Geared.Wpf.Scrollable
 {
     /// <summary>
     /// Interaction logic for ScrollingWindow.xaml

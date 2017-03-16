@@ -1,6 +1,6 @@
 ﻿using LiveCharts.Geared;
 
-namespace WpfGeared.Histogram
+namespace Geared.Wpf.Histogram
 {
     public class HistogramViewModel
     {

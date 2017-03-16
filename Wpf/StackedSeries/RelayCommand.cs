@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace WpfGeared.StackedSeries
+namespace Geared.Wpf.StackedSeries
 {
     public class RelayCommand : ICommand
     {

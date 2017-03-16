@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WpfGeared.Histogram
+namespace Geared.Wpf.Histogram
 {
     public static class DataProvider
     {

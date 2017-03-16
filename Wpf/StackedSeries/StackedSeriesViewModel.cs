@@ -1,13 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using LiveCharts.Geared;
 
-namespace WpfGeared.StackedSeries
+namespace Geared.Wpf.StackedSeries
 {
     public class StackedSeriesViewModel : INotifyPropertyChanged
     {
@@ -109,6 +108,7 @@ namespace WpfGeared.StackedSeries
             var lastPoint = Values3.DefaultIfEmpty(new LecturePoint()).Last().TimeSpan;
             To = lastPoint.Ticks;
             From = lastPoint.Ticks - TimeSpan.FromSeconds(10).Ticks;
+            _isReading = false;
         }
 
         private void StayInLast10()

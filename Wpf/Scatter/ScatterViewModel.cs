@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using LiveCharts.Geared;
 
-namespace WpfGeared.Scatter
+namespace Geared.Wpf.Scatter
 {
     public class ScatterViewModel : INotifyPropertyChanged
     {

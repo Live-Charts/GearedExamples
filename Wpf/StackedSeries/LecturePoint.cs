@@ -2,7 +2,7 @@
 using LiveCharts;
 using LiveCharts.Configurations;
 
-namespace WpfGeared.StackedSeries
+namespace Geared.Wpf.StackedSeries
 {
     public class LecturePoint
     {

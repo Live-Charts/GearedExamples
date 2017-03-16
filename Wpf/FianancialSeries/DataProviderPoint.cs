@@ -2,7 +2,7 @@
 using LiveCharts;
 using LiveCharts.Configurations;
 
-namespace WpfGeared.FianancialSeries
+namespace Geared.Wpf.FianancialSeries
 {
     public class DataProviderPoint
     {

@@ -2,7 +2,7 @@ using System;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace WpfGeared.Testing_Geared
+namespace Geared.Wpf.Testing_Geared
 {
     public class SpeedConverter : IValueConverter
     {

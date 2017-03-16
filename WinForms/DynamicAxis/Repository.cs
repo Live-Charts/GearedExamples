@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using WinForms.DynamicAxis;
 
-namespace WinForms.DynamicAxis
+namespace Geared.Winforms.DynamicAxis
 {
     public static class Repository
     {

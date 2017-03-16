@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using LiveCharts.Geared;
 
-namespace WpfGeared.SpeedTest
+namespace Geared.Wpf.SpeedTest
 {
     public class SpeedTestVm : INotifyPropertyChanged
     {

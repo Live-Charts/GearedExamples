@@ -1,4 +1,4 @@
-﻿namespace WpfGeared.StackedSeries
+﻿namespace Geared.Wpf.StackedSeries
 {
     public struct DetailedLecture
     {
