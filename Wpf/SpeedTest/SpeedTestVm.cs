@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading;
@@ -19,13 +19,13 @@ namespace Geared.Wpf.SpeedTest
             Values = new GearedValues<double>().WithQuality(Quality.Highest);
             ReadCommand = new RelayCommand(Read);
             StopCommand = new RelayCommand(Stop);
-            CleaCommand = new RelayCommand(Clear);
+            ClearCommand = new RelayCommand(Clear);
         }
 
         public bool IsReading { get; set; }
         public RelayCommand ReadCommand { get; set; }
         public RelayCommand StopCommand { get; set; }
-        public RelayCommand CleaCommand { get; set; }
+        public RelayCommand ClearCommand { get; set; }
         public GearedValues<double> Values { get; set; }
 
         public double Count
