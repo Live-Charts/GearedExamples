@@ -4,7 +4,7 @@ using LiveCharts.Geared;
 
 namespace Geared.Wpf.DynamicAxisUnit
 {
-    public class DynamicAxisUnitVm : INotifyPropertyChanged
+    public class DynamicAxisUnitVm : INotifyPropertyChanged, IDisposable
     {
         #region Fields
 
@@ -134,5 +134,9 @@ namespace Geared.Wpf.DynamicAxisUnit
 
         #endregion
 
+        public void Dispose()
+        {
+            Values.Dispose();
+        }
     }
 }

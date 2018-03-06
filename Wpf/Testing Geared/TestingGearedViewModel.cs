@@ -2,6 +2,8 @@
 using System.ComponentModel;
 using LiveCharts;
 using LiveCharts.Geared;
+using LiveCharts.Helpers;
+using LiveCharts.Wpf;
 
 namespace Geared.Wpf.Testing_Geared
 {
@@ -14,7 +16,7 @@ namespace Geared.Wpf.Testing_Geared
 
         public TestingGearedViewModel()
         {
-            _points = 100000d;
+            _points = 100000;
             Quality = Quality.Medium;
             Max = double.NaN;
             Min = double.NaN;
@@ -85,9 +87,9 @@ namespace Geared.Wpf.Testing_Geared
                 }
             }
 
-            var series = new GLineSeries
+            var series = new GLineSeries()
             {
-                Values = ar.AsGearedValues().WithQuality(Quality)
+                Values = ar.AsGearedValues()
             };
 
             SeriesCollection = new SeriesCollection

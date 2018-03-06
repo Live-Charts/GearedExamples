@@ -23,6 +23,11 @@ namespace Geared.Wpf.Home
         {
             var sample = (SampleVm) ((Border) sender).DataContext;
             var hvm = (HomeViewModel) DataContext;
+            var previous = hvm.Content as IDisposable;
+            if (previous != null)
+            {
+                previous.Dispose();
+            }
             hvm.Content = (UserControl) Activator.CreateInstance(sample.Content);
             hvm.IsMenuOpen = false;
         }

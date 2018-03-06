@@ -6,7 +6,7 @@ namespace Geared.Wpf.Scrollable
     /// <summary>
     /// Interaction logic for ScrollingWindow.xaml
     /// </summary>
-    public partial class ScrollableView
+    public partial class ScrollableView: IDisposable
     {
         public ScrollableView()
         {
@@ -38,6 +38,12 @@ namespace Geared.Wpf.Scrollable
             }
 
             vm.Formatter = x => new DateTime((long)x).ToString("yyyy");
+        }
+
+        public void Dispose()
+        {
+            var vm = (ScrollableViewModel)DataContext;
+            vm.Values.Dispose();
         }
     }
 }

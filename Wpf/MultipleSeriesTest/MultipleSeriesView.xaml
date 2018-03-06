@@ -28,10 +28,10 @@
             enough to draw the lines without any error, use your mouse wheel to zoom in/out,
             click hold and drag for panning.
         </TextBlock>
-        <lvc:CartesianChart Grid.Row="1" DisableAnimations="True"
+        <lvc:CartesianChart Grid.Row="1" 
+                            DisableAnimations="True"
                             Series="{Binding Series}" 
                             DataTooltip="{x:Null}"
-                            AnimationsSpeed="0:0:0.15"
                             Zoom="Xy"/>
     </Grid>
 </UserControl>
